@@ -5,11 +5,11 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 
-import App from "./App";
+import List from "./List";
 
-describe("App Component", () => {
+describe("List Component", () => {
   it("should render list items", () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<List initialItems={["Gabriel", "Herik", "Everson", "Ricardo"]} />);
 
     expect(getByText("Gabriel")).toBeInTheDocument();
     expect(getByText("Herik")).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("App Component", () => {
   });
 
   it("should able to add new item to the list", async () => {
-    const { getByText, getByPlaceholderText, findByText } = render(<App />);
+    const { getByText, getByPlaceholderText, findByText } = render(<List initialItems={[]} />);
 
     const inputElement = getByPlaceholderText("Digite para inserir na lista");
     const addButton = getByText("Adicionar");
@@ -33,7 +33,7 @@ describe("App Component", () => {
   });
 
   it("should able to add remove item to the list", async () => {
-    const { getByText, getAllByText } = render(<App />);
+    const { getByText, getAllByText } = render(<List initialItems={['Gabriel']} />);
 
     const removeButtons = getAllByText("Remover");
 
