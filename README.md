@@ -8,6 +8,7 @@
 - npm i @testing-library/react
 - npm i@testing-library/jest-dom 
 - npm i@testing-library/user-event -D
+- npm i jest-environment-jsdom
 
 ## Config jest.config
 
